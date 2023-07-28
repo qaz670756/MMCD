@@ -1,0 +1,53 @@
+# Model parameters.
+model:
+  model: "siamunet_diff"
+  2d_loss: 'bce' 
+  3d_loss: 'mse' 
+  exclude_zeros: False
+  num_classes: 2
+  pretraining_strategy: "imagenet" 
+  feature_extractor_arch: "resnet18" 
+  checkpoints_path: 
+  loss_weights: [1,10]
+  2d_loss_weights: [0.05, 0.95]
+  class_ignored: 9999 
+  restore_checkpoints: '3d' 
+  freeze_encoder: False
+
+# Optimization parameters.
+optim:
+  num_epochs: 300
+  lr: 0.0001
+  optim_type: "adamw" 
+  momentum: 0.9
+  nesterov: False
+  beta: [0.9, 0.999]
+  end_lr: 0.000005
+  weight_decay: 0.001
+  lr_schedule_type: "step_lr"
+  step: 300 
+  gamma: 0.75
+  last_epoch: 10
+
+# Data parameters:
+data:
+  max_value: 83.266
+  min_value: -27.291
+  augmentations: True
+  mean: [0.5896145210542503, 0.6210658017517566, 0.591661801751776]
+  std: [0.1898555514094201, 0.19114699478664082, 0.21242997453209553]
+  batch_size: 8
+  train:
+    path: ['../data/amsterdam/train','../data/rotterdam/train','../data/utrecht/train']
+  val:
+    path: ['../data/amsterdam/val','../data/rotterdam/val','../data/utrecht//val']
+  test:
+    path: ['../data/amsterdam/test','../data/rotterdam/test','../data/utrecht/test']
+    
+#  train:
+#    path: ['../data/enschede_05/train']
+#  val:
+#    path: ['../data/enschede_05/val']
+#  test:
+#    path: ['../data/enschede_05/train']
+  sets: ['img/','dsm/','2D/','3D/']

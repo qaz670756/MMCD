@@ -1,0 +1,197 @@
+/usr/local/lib/python3.8/dist-packages/pkg_resources/__init__.py:116: PkgResourcesDeprecationWarning: R2021a is an invalid version and will not be supported in a future release
+  warnings.warn(
+/usr/local/lib/python3.8/dist-packages/pkg_resources/__init__.py:116: PkgResourcesDeprecationWarning: R2021a is an invalid version and will not be supported in a future release
+  warnings.warn(
+Loading experiment ./config/CD_siamunet_diff.yaml
+[2023-04-21 01:05:57,856] DEBUG: PROJ data files are available at built-in paths.
+/usr/local/lib/python3.8/dist-packages/albumentations/augmentations/transforms.py:1149: FutureWarning: This class has been deprecated. Please use RandomBrightnessContrast
+  warnings.warn(
+/usr/local/lib/python3.8/dist-packages/albumentations/augmentations/transforms.py:1175: FutureWarning: RandomContrast has been deprecated. Please use RandomBrightnessContrast
+  warnings.warn(
+Norm_log:False
+    | Name                   | Type              | Params
+---------------------------------------------------------------
+0   | model                  | SiamUNet_diff     | 1.4 M 
+1   | model.conv11           | Conv3x3           | 464   
+2   | model.conv11.seq       | Sequential        | 464   
+3   | model.conv11.seq.0     | ZeroPad2d         | 0     
+4   | model.conv11.seq.1     | Conv2d            | 432   
+5   | model.conv11.seq.2     | BatchNorm2d       | 32    
+6   | model.conv11.seq.3     | ReLU              | 0     
+7   | model.do11             | Identity          | 0     
+8   | model.conv12           | Conv3x3           | 2.3 K 
+9   | model.conv12.seq       | Sequential        | 2.3 K 
+10  | model.conv12.seq.0     | ZeroPad2d         | 0     
+11  | model.conv12.seq.1     | Conv2d            | 2.3 K 
+12  | model.conv12.seq.2     | BatchNorm2d       | 32    
+13  | model.conv12.seq.3     | ReLU              | 0     
+14  | model.do12             | Identity          | 0     
+15  | model.pool1            | MaxPool2x2        | 0     
+16  | model.conv21           | Conv3x3           | 4.7 K 
+17  | model.conv21.seq       | Sequential        | 4.7 K 
+18  | model.conv21.seq.0     | ZeroPad2d         | 0     
+19  | model.conv21.seq.1     | Conv2d            | 4.6 K 
+20  | model.conv21.seq.2     | BatchNorm2d       | 64    
+21  | model.conv21.seq.3     | ReLU              | 0     
+22  | model.do21             | Identity          | 0     
+23  | model.conv22           | Conv3x3           | 9.3 K 
+24  | model.conv22.seq       | Sequential        | 9.3 K 
+25  | model.conv22.seq.0     | ZeroPad2d         | 0     
+26  | model.conv22.seq.1     | Conv2d            | 9.2 K 
+27  | model.conv22.seq.2     | BatchNorm2d       | 64    
+28  | model.conv22.seq.3     | ReLU              | 0     
+29  | model.do22             | Identity          | 0     
+30  | model.pool2            | MaxPool2x2        | 0     
+31  | model.conv31           | Conv3x3           | 18.6 K
+32  | model.conv31.seq       | Sequential        | 18.6 K
+33  | model.conv31.seq.0     | ZeroPad2d         | 0     
+34  | model.conv31.seq.1     | Conv2d            | 18.4 K
+35  | model.conv31.seq.2     | BatchNorm2d       | 128   
+36  | model.conv31.seq.3     | ReLU              | 0     
+37  | model.do31             | Identity          | 0     
+38  | model.conv32           | Conv3x3           | 37.0 K
+39  | model.conv32.seq       | Sequential        | 37.0 K
+40  | model.conv32.seq.0     | ZeroPad2d         | 0     
+41  | model.conv32.seq.1     | Conv2d            | 36.9 K
+42  | model.conv32.seq.2     | BatchNorm2d       | 128   
+43  | model.conv32.seq.3     | ReLU              | 0     
+44  | model.do32             | Identity          | 0     
+45  | model.conv33           | Conv3x3           | 37.0 K
+46  | model.conv33.seq       | Sequential        | 37.0 K
+47  | model.conv33.seq.0     | ZeroPad2d         | 0     
+48  | model.conv33.seq.1     | Conv2d            | 36.9 K
+49  | model.conv33.seq.2     | BatchNorm2d       | 128   
+50  | model.conv33.seq.3     | ReLU              | 0     
+51  | model.do33             | Identity          | 0     
+52  | model.pool3            | MaxPool2x2        | 0     
+53  | model.conv41           | Conv3x3           | 74.0 K
+54  | model.conv41.seq       | Sequential        | 74.0 K
+55  | model.conv41.seq.0     | ZeroPad2d         | 0     
+56  | model.conv41.seq.1     | Conv2d            | 73.7 K
+57  | model.conv41.seq.2     | BatchNorm2d       | 256   
+58  | model.conv41.seq.3     | ReLU              | 0     
+59  | model.do41             | Identity          | 0     
+60  | model.conv42           | Conv3x3           | 147 K 
+61  | model.conv42.seq       | Sequential        | 147 K 
+62  | model.conv42.seq.0     | ZeroPad2d         | 0     
+63  | model.conv42.seq.1     | Conv2d            | 147 K 
+64  | model.conv42.seq.2     | BatchNorm2d       | 256   
+65  | model.conv42.seq.3     | ReLU              | 0     
+66  | model.do42             | Identity          | 0     
+67  | model.conv43           | Conv3x3           | 147 K 
+68  | model.conv43.seq       | Sequential        | 147 K 
+69  | model.conv43.seq.0     | ZeroPad2d         | 0     
+70  | model.conv43.seq.1     | Conv2d            | 147 K 
+71  | model.conv43.seq.2     | BatchNorm2d       | 256   
+72  | model.conv43.seq.3     | ReLU              | 0     
+73  | model.do43             | Identity          | 0     
+74  | model.pool4            | MaxPool2x2        | 0     
+75  | model.upconv4          | ConvTransposed3x3 | 147 K 
+76  | model.upconv4.seq      | Sequential        | 147 K 
+77  | model.upconv4.seq.0    | ConvTranspose2d   | 147 K 
+78  | model.conv43d          | Conv3x3           | 295 K 
+79  | model.conv43d.seq      | Sequential        | 295 K 
+80  | model.conv43d.seq.0    | ZeroPad2d         | 0     
+81  | model.conv43d.seq.1    | Conv2d            | 294 K 
+82  | model.conv43d.seq.2    | BatchNorm2d       | 256   
+83  | model.conv43d.seq.3    | ReLU              | 0     
+84  | model.do43d            | Identity          | 0     
+85  | model.conv42d          | Conv3x3           | 147 K 
+86  | model.conv42d.seq      | Sequential        | 147 K 
+87  | model.conv42d.seq.0    | ZeroPad2d         | 0     
+88  | model.conv42d.seq.1    | Conv2d            | 147 K 
+89  | model.conv42d.seq.2    | BatchNorm2d       | 256   
+90  | model.conv42d.seq.3    | ReLU              | 0     
+91  | model.do42d            | Identity          | 0     
+92  | model.conv41d          | Conv3x3           | 73.9 K
+93  | model.conv41d.seq      | Sequential        | 73.9 K
+94  | model.conv41d.seq.0    | ZeroPad2d         | 0     
+95  | model.conv41d.seq.1    | Conv2d            | 73.7 K
+96  | model.conv41d.seq.2    | BatchNorm2d       | 128   
+97  | model.conv41d.seq.3    | ReLU              | 0     
+98  | model.do41d            | Identity          | 0     
+99  | model.upconv3          | ConvTransposed3x3 | 36.9 K
+100 | model.upconv3.seq      | Sequential        | 36.9 K
+101 | model.upconv3.seq.0    | ConvTranspose2d   | 36.9 K
+102 | model.conv33d          | Conv3x3           | 73.9 K
+103 | model.conv33d.seq      | Sequential        | 73.9 K
+104 | model.conv33d.seq.0    | ZeroPad2d         | 0     
+105 | model.conv33d.seq.1    | Conv2d            | 73.7 K
+106 | model.conv33d.seq.2    | BatchNorm2d       | 128   
+107 | model.conv33d.seq.3    | ReLU              | 0     
+108 | model.do33d            | Identity          | 0     
+109 | model.conv32d          | Conv3x3           | 37.0 K
+110 | model.conv32d.seq      | Sequential        | 37.0 K
+111 | model.conv32d.seq.0    | ZeroPad2d         | 0     
+112 | model.conv32d.seq.1    | Conv2d            | 36.9 K
+113 | model.conv32d.seq.2    | BatchNorm2d       | 128   
+114 | model.conv32d.seq.3    | ReLU              | 0     
+115 | model.do32d            | Identity          | 0     
+116 | model.conv31d          | Conv3x3           | 18.5 K
+117 | model.conv31d.seq      | Sequential        | 18.5 K
+118 | model.conv31d.seq.0    | ZeroPad2d         | 0     
+119 | model.conv31d.seq.1    | Conv2d            | 18.4 K
+120 | model.conv31d.seq.2    | BatchNorm2d       | 64    
+121 | model.conv31d.seq.3    | ReLU              | 0     
+122 | model.do31d            | Identity          | 0     
+123 | model.upconv2          | ConvTransposed3x3 | 9.2 K 
+124 | model.upconv2.seq      | Sequential        | 9.2 K 
+125 | model.upconv2.seq.0    | ConvTranspose2d   | 9.2 K 
+126 | model.conv22d          | Conv3x3           | 18.5 K
+127 | model.conv22d.seq      | Sequential        | 18.5 K
+128 | model.conv22d.seq.0    | ZeroPad2d         | 0     
+129 | model.conv22d.seq.1    | Conv2d            | 18.4 K
+130 | model.conv22d.seq.2    | BatchNorm2d       | 64    
+131 | model.conv22d.seq.3    | ReLU              | 0     
+132 | model.do22d            | Identity          | 0     
+133 | model.conv21d          | Conv3x3           | 4.6 K 
+134 | model.conv21d.seq      | Sequential        | 4.6 K 
+135 | model.conv21d.seq.0    | ZeroPad2d         | 0     
+136 | model.conv21d.seq.1    | Conv2d            | 4.6 K 
+137 | model.conv21d.seq.2    | BatchNorm2d       | 32    
+138 | model.conv21d.seq.3    | ReLU              | 0     
+139 | model.do21d            | Identity          | 0     
+140 | model.upconv1          | ConvTransposed3x3 | 2.3 K 
+141 | model.upconv1.seq      | Sequential        | 2.3 K 
+142 | model.upconv1.seq.0    | ConvTranspose2d   | 2.3 K 
+143 | model.conv12d          | Conv3x3           | 4.6 K 
+144 | model.conv12d.seq      | Sequential        | 4.6 K 
+145 | model.conv12d.seq.0    | ZeroPad2d         | 0     
+146 | model.conv12d.seq.1    | Conv2d            | 4.6 K 
+147 | model.conv12d.seq.2    | BatchNorm2d       | 32    
+148 | model.conv12d.seq.3    | ReLU              | 0     
+149 | model.do12d            | Identity          | 0     
+150 | model.conv11d          | Conv3x3           | 290   
+151 | model.conv11d.seq      | Sequential        | 290   
+152 | model.conv11d.seq.0    | ZeroPad2d         | 0     
+153 | model.conv11d.seq.1    | Conv2d            | 290   
+154 | model.conv12d_3d       | Conv3x3           | 4.6 K 
+155 | model.conv12d_3d.seq   | Sequential        | 4.6 K 
+156 | model.conv12d_3d.seq.0 | ZeroPad2d         | 0     
+157 | model.conv12d_3d.seq.1 | Conv2d            | 4.6 K 
+158 | model.conv12d_3d.seq.2 | BatchNorm2d       | 32    
+159 | model.conv12d_3d.seq.3 | ReLU              | 0     
+160 | model.do12d_3d         | Identity          | 0     
+161 | model.conv11d_3d       | Conv3x3           | 145   
+162 | model.conv11d_3d.seq   | Sequential        | 145   
+163 | model.conv11d_3d.seq.0 | ZeroPad2d         | 0     
+164 | model.conv11d_3d.seq.1 | Conv2d            | 145   
+165 | model.activate3d       | Tanh              | 0     
+166 | criterion2d            | CrossEntropyLoss  | 0     
+167 | criterion3d            | MSELoss           | 0     
+---------------------------------------------------------------
+1.4 M     Trainable params
+0         Non-trainable params
+1.4 M     Total params
+5.415     Total estimated model params size (MB)
+[INFO] Register zero_ops() for <class 'torch.nn.modules.padding.ZeroPad2d'>.
+[INFO] Register count_convNd() for <class 'torch.nn.modules.conv.Conv2d'>.
+[INFO] Register count_normalization() for <class 'torch.nn.modules.batchnorm.BatchNorm2d'>.
+[INFO] Register zero_ops() for <class 'torch.nn.modules.activation.ReLU'>.
+[INFO] Register zero_ops() for <class 'torch.nn.modules.container.Sequential'>.
+[INFO] Register count_convNd() for <class 'torch.nn.modules.conv.ConvTranspose2d'>.
+Model GFLOPs: 20.17
+--Return--
+> /data/private/MMCD/main.py(118)print_model_size()->None
+-> import pdb;pdb.set_trace()
+(Pdb) 

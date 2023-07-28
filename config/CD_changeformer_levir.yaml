@@ -1,0 +1,44 @@
+# Model parameters.
+model:
+  model: "changeformer_ori"
+  2d_loss: 'bce' 
+  3d_loss: 'mse' 
+  num_classes: 4
+  pretraining_strategy: "imagenet" 
+  feature_extractor_arch: "resnet18" 
+  checkpoints_path: 
+  loss_weights: [1,3]
+  2d_loss_weights: [0.05, 0.95, 0.95, 0.95]
+  class_ignored: 9999 
+
+# Optimization parameters.
+optim:
+  num_epochs: 300
+  lr: 0.0001
+  optim_type: "adamw" 
+  momentum: 0.9
+  nesterov: False
+  beta: [0.9, 0.999]
+  end_lr: 0.000005
+  weight_decay: 0.001
+  lr_schedule_type: "step_lr"
+  step: 300 
+  gamma: 0.75
+  last_epoch: 10
+
+# Data parameters:
+data:
+  max_value: 83.266
+  min_value: -27.291
+  augmentations: True
+  mean: [0.5896145210542503, 0.6210658017517566, 0.591661801751776]
+  std: [0.1898555514094201, 0.19114699478664082, 0.21242997453209553]
+  batch_size: 2
+  train:
+    path: '../data/LEVIR/train'
+  val:
+    path: '../data/LEVIR/val'
+  test:
+    path: '../data/LEVIR/test'
+    
+  sets: ['A/','B/','label/']
