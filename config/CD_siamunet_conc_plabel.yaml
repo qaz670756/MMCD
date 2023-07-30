@@ -1,26 +1,29 @@
 # Model parameters.
 model:
-  model: "hmcdnet_ori"
+  model: "siamunet_conc_plabel"
   2d_loss: 'bce'
   3d_loss: 'mse'
   exclude_zeros: False
   num_classes: 3
   loss_weights: [1,3]
   2d_loss_weights: [0.05, 0.95, 0.95]
-  pretrain_path: 'results/CD_hmcdnet_levir/epoch=299-step=66900.ckpt'
-  resume_path: 'results/CD_hmcdnet_ori/lightning_logs/version_0/checkpoints/epoch=219-step=28160.ckpt'
+  class_ignored: 9999
+  restore_checkpoints: '3d'
+  pretrain_path: 'results/CD_siamunet_conc_levir/version_3/checkpoints/epoch=299-step=33600.ckpt'
+  resume_path: 'results/CD_siamunet_conc_plabel/lightning_logs/version_0/checkpoints/epoch=259-step=33280.ckpt'
+    
 # Optimization parameters.
 optim:
   num_epochs: 300
   lr: 0.0001
-  optim_type: "adamw"
+  optim_type: "adamw" 
   momentum: 0.9
   nesterov: False
   beta: [0.9, 0.999]
   end_lr: 0.000005
   weight_decay: 0.001
   lr_schedule_type: "step_lr"
-  step: 300
+  step: 300 
   gamma: 0.75
   last_epoch: 10
 
@@ -39,5 +42,5 @@ data:
   test:
     path: ['../data/amsterdam_025/test','../data/rotterdam_025/test','../data/utrecht_025/test']
     
-  sets: ['img_1k/','dsm_1k/','mask2d_1k/','mask3d_1k/']
 
+  sets: ['img_1k/','dsm_1k/','mask2d_1k/','mask3d_1k/']

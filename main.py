@@ -18,7 +18,7 @@ import random
 def get_args():
     parser = ArgumentParser(description="Hyperparameters", add_help=True)
     parser.add_argument('-c', '--config-name', type=str, help='YAML Config name',
-                        dest='CONFIG', default='CD_hmcdnet_plabel_deepsup_noatt')
+                        dest='CONFIG', default='CD_changeformer_plabel')
     parser.add_argument('--ckpt_version', type=str, help='checkpoint version',
                         dest='ckpt_version', default='0')
     parser.add_argument('-nw', '--num-workers', type=int, help='Number of workers',
