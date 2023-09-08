@@ -21,7 +21,7 @@ This repository contains the code and resources for multimodal change detection,
 
 Multimodal change detection plays a crucial role in various fields, including remote sensing, urban planning, and environmental monitoring. This repository provides the code and resources to perform multimodal change detection using state-of-the-art techniques.
 
-![这是图片](/assets/img/philly-magic-garden.jpg "Magic Gardens")
+![Data](/utils/src/Data.jpg "Data")
 
 <a name="main-results"></a>
 ### Main Results
