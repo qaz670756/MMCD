@@ -18,10 +18,15 @@ This repository contains the code and resources for multimodal change detection,
 
 <a name="introduction"></a>
 ## Introduction
-
-Multimodal change detection plays a crucial role in various fields, including remote sensing, urban planning, and environmental monitoring. This repository provides the code and resources to perform multimodal change detection using state-of-the-art techniques.
+We provide a DSM-to-image multimodal dataset, which detecting multi-category building change from height data and aerial images, called Hi-BCD. 
 
 ![Data](/utils/src/data1.jpg "Data")
+
+It is constructed for detecting 2D and 3D changes simultaneously from cross-dimensional modalities. Some samples are as follow:
+
+ ![Data_sample](/utils/src/data_sample.jpg "Data_sample")
+
+It includes 1500 pairs of high-resolution tiles emcompassing three cities in the Netherlands. The details of Hi-BCD dataset are as follow:
 
 <a name="main-results"></a>
 ### Main Results
