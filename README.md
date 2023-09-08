@@ -6,11 +6,11 @@ This repository contains the code and resources for multimodal change detection,
 
 ## Table of Contents
 - [Introduction](#introduction)
+  - [Main Results](#main-results)
 - [Dataset](#dataset)
 - [Repository Structure](#repository-structure)
 - [Installation](#installation)
 - [Usage](#usage)
-  - [Main Results](#main-results)
   - [Training](#training)
   - [Testing](#testing)
 - [Citation](#citation)
@@ -23,10 +23,16 @@ Multimodal change detection plays a crucial role in various fields, including re
 
 ![这是图片](/assets/img/philly-magic-garden.jpg "Magic Gardens")
 
-<a name="citation"></a>
+<a name="main-results"></a>
+### Main Results
+You can find the main results and evaluation metrics in the Results directory.
+
 
 <a name="dataset"></a>
 ## Dataset
+
+
+
 
 <a name="repository-structure"></a>
 ## Repository Structure
@@ -50,16 +56,12 @@ pip install -r requirements.txt
 
 ## Usage
 
-<a name="main-results"></a>
-# Main Results
-You can find the main results and evaluation metrics in the Results directory.
-
 <a name="training"></a>
-# Training
+### Training
 To train your own multimodal change detection model, follow the instructions in the Training documentation.
 
 <a name="testing"></a>
-# Testing
+### Testing
 To perform change detection on your own data, check out the Testing tutorial.
 
 
