@@ -19,6 +19,16 @@ This repository contains the code and resources for multimodal change detection,
 <a name="introduction"></a>
 ## Introduction
 
+![compare](/utils/src/fig1_compare.jpg "compare")
+
+
+
+<a name="main-results"></a>
+### Main Results
+You can find the main results and evaluation metrics in the Results directory.
+
+![singlevsdouble](/utils/src/singlevsdouble.jpg "singlevsdouble")
+
 
 <a name="dataset"></a>
 ## Dataset
@@ -42,9 +52,7 @@ It includes 1500 pairs of high-resolution tiles emcompassing three cities in the
 
 
 
-<a name="main-results"></a>
-### Main Results
-You can find the main results and evaluation metrics in the Results directory.
+
 
 
 
