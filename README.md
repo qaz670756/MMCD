@@ -39,9 +39,10 @@ If you find this code or dataset useful in your research, please consider citing
 
 ```bash
 git clone https://github.com/your-username/multimodal-change-detection.git
-
+```
 Install the required dependencies:
 pip install -r requirements.txt
+
 ## Usage
 # Main Results
 You can find the main results and evaluation metrics in the Results directory.
