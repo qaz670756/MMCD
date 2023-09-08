@@ -18,7 +18,11 @@ This repository contains the code and resources for multimodal change detection,
 
 <a name="introduction"></a>
 ## Introduction
-We provide a DSM-to-image multimodal dataset, which detecting multi-category building change from height data and aerial images, called Hi-BCD. 
+
+
+<a name="dataset"></a>
+## Dataset
+We provide a DSM-to-image multimodal dataset, which detecting multi-category building change from height data and aerial images, called Hi-BCD. You can download the dataset via: [BaiduNetdisk](https://google.com) or [GoogleNetdisk](https://google.com).
 
 ![Data](/utils/src/data1.jpg "Data")
 
@@ -27,14 +31,23 @@ It is constructed for detecting 2D and 3D changes simultaneously from cross-dime
  ![Data_sample](/utils/src/data_sample.jpg "Data_sample")
 
 It includes 1500 pairs of high-resolution tiles emcompassing three cities in the Netherlands. The details of Hi-BCD dataset are as follow:
+| Attribute                 | Category       | Amsterdam | Rotterdam | Utrecht |
+| ------------------------- | ---------- | ---------- | ------- |------- |
+|   changed objects         | newly-built    | 389        | 510        | 458     |
+|                           | demolished     | 251        | 229        | 187     |
+|   changed pixels          | amount         | 6.625M     | 5.139M     | 7.73M   |
+|                           | $prop_{/total}$| 1.3%       | 1.0%       | 1.5%    |
+|    samples                | total          | 500        | 500        | 500     |
+|                           | with change    | 40.8%      | 34.2%      | 43%     |
+
+
 
 <a name="main-results"></a>
 ### Main Results
 You can find the main results and evaluation metrics in the Results directory.
 
 
-<a name="dataset"></a>
-## Dataset
+
 
 
 
