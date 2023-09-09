@@ -73,6 +73,10 @@ It includes 1500 pairs of high-resolution tiles emcompassing three cities in the
 ```bash
 git clone https://github.com/your-username/multimodal-change-detection.git
 ```
+![table3](/utils/src/table3.jpg "table3")
+
+![table4](/utils/src/table4.jpg "table4")
+
 
 Install the required dependencies:
 pip install -r requirements.txt
