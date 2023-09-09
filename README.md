@@ -77,6 +77,10 @@ Install the required dependencies:
 pip install -r requirements.txt
 
 ## Usage
+### Rreproduce results in the paper
+'''
+bash reproduce.sh 
+'''
 
 <a name="training"></a>
 ### Training
