@@ -105,6 +105,6 @@ If you find this code or dataset useful in your research, please consider citing
 <a name="license"></a>
 ## License
 
-Feel free to customize this template according to your specific project's details and needs. Replace placeholders like `your-username`, `your_paper_reference`, and the sections' content with your actual information. Additionally, create the relevant documentation files (e.g., `training.md` and `testing.md`) in the `docs/` directory to provide more detailed tutorials and usage instructions.
+Feel free to customize this repository according to your specific project's details and needs. It is easy to use and extend follow the instruction in [Pytorch-Lightning](https://lightning.ai/docs/pytorch/stable/).
 
 
