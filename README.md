@@ -28,7 +28,7 @@ This repository contains the code and resources for multimodal change detection,
 
 <a name="dataset"></a>
 ## Dataset
-We provide a DSM-to-image multimodal dataset, which detecting multi-category building change from height data and aerial images, called Hi-BCD. You can download the dataset via: [BaiduNetdisk](https://google.com) or [GoogleNetdisk](https://drive.google.com/drive/folders/1E5-h0s4l7LtLnR6CD2F7_Es1MlFZRti9?usp=sharing).
+We provide a DSM-to-image multimodal dataset, which detecting multi-category building change from height data and aerial images, called Hi-BCD. You can download the dataset via: [BaiduNetdisk](https://pan.baidu.com/s/1tgF56e1sOe51ZrWuS7mTGA?pwd=lz0y) or [GoogleNetdisk](https://drive.google.com/drive/folders/1E5-h0s4l7LtLnR6CD2F7_Es1MlFZRti9?usp=sharing).
 
 ![Data](/utils/src/data1.jpg "Data")
 
@@ -85,6 +85,8 @@ You can download the model weights here, including our method and the other comp
 ```bash
 bash reproduce.sh 
 ```
+
+
 
 More information about the compared methods can be found in [AwesomeChangeDetection](https://google.com).
 
