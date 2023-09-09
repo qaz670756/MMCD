@@ -21,8 +21,6 @@ This repository contains the code and resources for multimodal change detection,
 ![compare](/utils/src/fig1_compare.jpg "compare")
 
 
-
-
 ![singlevsdouble](/utils/src/singlevsdouble.jpg "singlevsdouble")
 
 
@@ -73,9 +71,7 @@ It includes 1500 pairs of high-resolution tiles emcompassing three cities in the
 ```bash
 git clone https://github.com/your-username/multimodal-change-detection.git
 ```
-![table3](/utils/src/table3.jpg "table3")
 
-![table4](/utils/src/table4.jpg "table4")
 
 
 Install the required dependencies:
@@ -90,7 +86,9 @@ You can download the model weights here, including our method and the other comp
 bash reproduce.sh 
 ```
 
+![table3](/utils/src/table3.jpg "table3")
 
+![table4](/utils/src/table4.jpg "table4")
 
 More information about the compared methods can be found in [AwesomeChangeDetection](https://google.com).
 
