@@ -73,15 +73,18 @@ It includes 1500 pairs of high-resolution tiles emcompassing three cities in the
 ```bash
 git clone https://github.com/your-username/multimodal-change-detection.git
 ```
+
 Install the required dependencies:
 pip install -r requirements.txt
 
 ## Usage
 ### Rreproduce results in the paper
 
-'''bash
+You can download the model weights here, including our method and the other compared change detection methods. Next, put the model weights in /weights and run the following command:
+
+```bash
 bash reproduce.sh 
-'''
+```
 
 <a name="training"></a>
 ### Training
