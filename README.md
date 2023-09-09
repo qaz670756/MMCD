@@ -86,6 +86,8 @@ You can download the model weights here, including our method and the other comp
 bash reproduce.sh 
 ```
 
+More information about the compared methods can be found in [AwesomeChangeDetection](https://google.com).
+
 <a name="training"></a>
 ### Training
 To train your own multimodal change detection model, follow the instructions in the Training documentation.
