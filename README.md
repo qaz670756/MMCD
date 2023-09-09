@@ -78,7 +78,8 @@ pip install -r requirements.txt
 
 ## Usage
 ### Rreproduce results in the paper
-'''
+
+'''bash
 bash reproduce.sh 
 '''
 
