@@ -6,7 +6,6 @@ This repository contains the code and resources for multimodal change detection,
 
 ## Table of Contents
 - [Introduction](#introduction)
-  - [Main Results](#main-results)
 - [Dataset](#dataset)
 - [Repository Structure](#repository-structure)
 - [Installation](#installation)
@@ -23,9 +22,6 @@ This repository contains the code and resources for multimodal change detection,
 
 
 
-<a name="main-results"></a>
-### Main Results
-You can find the main results and evaluation metrics in the Results directory.
 
 ![singlevsdouble](/utils/src/singlevsdouble.jpg "singlevsdouble")
 
