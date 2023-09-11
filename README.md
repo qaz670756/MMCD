@@ -109,6 +109,6 @@ If you find this code or dataset useful in your research, please consider citing
 <a name="license"></a>
 ## License
 
-Feel free to customize this repository according to your specific project's details and needs. It is easy to use and extend follow the instruction in [Pytorch-Lightning](https://lightning.ai/docs/pytorch/stable/).
+Feel free to customize this repository according to your specific project's details and needs. It is easy to use and extend follow the instruction of [Pytorch-Lightning](https://lightning.ai/docs/pytorch/stable/).
 
 
