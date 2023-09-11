@@ -90,7 +90,7 @@ bash reproduce.sh
 
 ![table4](/utils/src/table4.jpg "table4")
 
-More information about the compared methods can be found in [AwesomeChangeDetection](https://google.com).
+More information about the compared methods can be found in [AwesomeChangeDetection](https://github.com/qaz670756/Awesome-Change-Detection).
 
 <a name="training"></a>
 ### Training
