@@ -80,7 +80,7 @@ pip install -r requirements.txt
 ## Usage
 ### Rreproduce results in the paper
 
-You can download the model weights [here](https://pan.baidu.com/s/158n3u9KfWkcGSYLJ8yoXKA?pwd=fv0v), including our method and the other compared change detection methods. Next, put the model weights in /weights and run the following command:
+You can download the model weights via [BaiduNetdisk](https://pan.baidu.com/s/158n3u9KfWkcGSYLJ8yoXKA?pwd=fv0v) or GoogleNetdisk, including our method and the other compared change detection methods. Next, put the model weights in /weights and run the following command:
 
 ```bash
 bash reproduce.sh 
