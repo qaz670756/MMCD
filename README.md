@@ -2,7 +2,7 @@
 
 # Change Detection beyond 2D with Multimodal Data
 
-[arXiv Paper](https://google.com)
+[arXiv Paper](https://arxiv.org/abs/2310.09276)
 
 This repository contains the code and resources for multimodal change detection, a technique for detecting changes between different data modalities, such as satellite images and digital surface models (DSMs). 
 
@@ -28,7 +28,7 @@ This repository contains the code and resources for multimodal change detection,
 
 <a name="dataset"></a>
 ## Dataset
-We provide a DSM-to-image multimodal dataset, which detecting multi-category building change from height data and aerial images, called Hi-BCD. You can download the dataset via: [BaiduNetdisk](https://pan.baidu.com/s/1tgF56e1sOe51ZrWuS7mTGA?pwd=lz0y) or [GoogleNetdisk](https://drive.google.com/drive/folders/1E5-h0s4l7LtLnR6CD2F7_Es1MlFZRti9?usp=sharing).
+We provide a DSM-to-image multimodal dataset, which detecting multi-category building change from height data and aerial images, called Hi-BCD. You can download the dataset via: [ITC-sever](https://eostore.itc.utwente.nl:5001/sharing/HQQUzD7H3) with password itc2023 or [BaiduNetdisk](https://pan.baidu.com/s/1tgF56e1sOe51ZrWuS7mTGA?pwd=lz0y) or [GoogleNetdisk](https://drive.google.com/drive/folders/1E5-h0s4l7LtLnR6CD2F7_Es1MlFZRti9?usp=sharing).
 
 ![Data](/utils/src/data1.jpg "Data")
 
