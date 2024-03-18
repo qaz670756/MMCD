@@ -1,3 +1,5 @@
+2024.3.18 The paper "Transformer-based Multimodal Change Detection with Multitask Consistency Constraints" is accepted by **Information Fusion**
+
 2023.9.20 🚧 This repository is currently under active development and construction. We appreciate your interest, but please note that it may not yet be fully functional or complete.
 
 # Change Detection beyond 2D with Multimodal Data
