@@ -1,4 +1,6 @@
-2024.3.18 The paper "Transformer-based Multimodal Change Detection with Multitask Consistency Constraints" is accepted by **Information Fusion**
+2024.4.17 The code and well-trained models are updated.
+
+2024.3.18 The paper "Transformer-based Multimodal Change Detection with Multitask Consistency Constraints" is accepted by **Information Fusion**. [Paper link](https://www.sciencedirect.com/science/article/pii/S1566253524001362)
 
 2023.9.20 🚧 This repository is currently under active development and construction. We appreciate your interest, but please note that it may not yet be fully functional or complete.
 
@@ -6,7 +8,7 @@
 
 [arXiv Paper](https://arxiv.org/abs/2310.09276)
 
-This repository contains the code and resources for multimodal change detection, a technique for detecting changes between different data modalities, such as satellite images and digital surface models (DSMs). 
+This repository contains the code and resources for multimodal change detection, a technique for detecting changes between different modalities, specifically between satellite imagery and digital surface models (DSMs).
 
 ## Table of Contents
 - [Introduction](#introduction)
