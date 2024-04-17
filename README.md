@@ -111,7 +111,15 @@ To perform change detection on your own data, check out the Testing tutorial.
 ## Citation
 
 If you find this code or dataset useful in your research, please consider citing our paper:
-
+@article{liu2024transformer,
+  title={Transformer-based multimodal change detection with multitask consistency constraints},
+  author={Liu, Biyuan and Chen, Huaixin and Li, Kun and Yang, Michael Ying},
+  journal={Information Fusion},
+  volume={108},
+  pages={102358},
+  year={2024},
+  publisher={Elsevier}
+}
 <a name="license"></a>
 ## License
 
