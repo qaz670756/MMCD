@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from ._blocks import Conv1x1, Conv3x3, MaxPool2x2
+from ._utils._blocks import Conv1x1, Conv3x3, MaxPool2x2
 
 
 class SimpleResBlock(nn.Module):

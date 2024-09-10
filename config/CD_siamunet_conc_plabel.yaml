@@ -10,7 +10,6 @@ model:
   class_ignored: 9999
   restore_checkpoints: '3d'
   pretrain_path: 'results/CD_siamunet_conc_levir/version_3/checkpoints/epoch=299-step=33600.ckpt'
-  resume_path: 'results/CD_siamunet_conc_plabel/lightning_logs/version_0/checkpoints/epoch=259-step=33280.ckpt'
     
 # Optimization parameters.
 optim:

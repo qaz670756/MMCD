@@ -12,6 +12,7 @@ from torch.autograd import Function
 from math import sqrt
 
 import random
+from timm.models.layers import trunc_normal_
 
 class ConvBlock(torch.nn.Module):
     def __init__(self, input_size, output_size, kernel_size=3, stride=1, padding=1, bias=True, activation='prelu', norm=None):
@@ -105,13 +106,81 @@ class UpsampleConvLayer(torch.nn.Module):
         #out = self.conv2d(x)
         out = F.interpolate(x, scale_factor=2, mode='bilinear',align_corners=False)
         return out
+class DWConv(nn.Module):
+    def __init__(self, dim=768):
+        super(DWConv, self).__init__()
+        self.dwconv = nn.Conv2d(dim, dim, 3, 1, 1, bias=True, groups=dim)
 
+    def forward(self, x, H, W):
+        B, N, C = x.shape
+        x = x.transpose(1, 2).view(B, C, H, W)
+        x = self.dwconv(x)
+        x = x.flatten(2).transpose(1, 2)
+
+        return x
+class Mlp(nn.Module):
+    def __init__(self, in_features, hidden_features=None, out_features=None, act_layer=nn.GELU, drop=0.):
+        super().__init__()
+        out_features = out_features or in_features
+        hidden_features = hidden_features or in_features
+        self.fc1 = nn.Linear(in_features, hidden_features)
+        self.dwconv = DWConv(hidden_features)
+        self.act = act_layer()
+        self.fc2 = nn.Linear(hidden_features, out_features)
+        self.drop = nn.Dropout(drop)
+
+        self.apply(self._init_weights)
+
+    def _init_weights(self, m):
+        if isinstance(m, nn.Linear):
+            trunc_normal_(m.weight, std=.02)
+            if isinstance(m, nn.Linear) and m.bias is not None:
+                nn.init.constant_(m.bias, 0)
+        elif isinstance(m, nn.LayerNorm):
+            nn.init.constant_(m.bias, 0)
+            nn.init.constant_(m.weight, 1.0)
+        elif isinstance(m, nn.Conv2d):
+            fan_out = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
+            fan_out //= m.groups
+            m.weight.data.normal_(0, math.sqrt(2.0 / fan_out))
+            if m.bias is not None:
+                m.bias.data.zero_()
+
+    def forward(self, x, H, W):
+
+        x = self.fc1(x)
+        x = self.dwconv(x, H, W)
+        x = self.act(x)
+        x = self.drop(x)
+        x = self.fc2(x)
+        x = self.drop(x)
+        return x
+
+class MLP_ResidualBlock(torch.nn.Module):
+    def __init__(self, channels):
+        super(MLP_ResidualBlock, self).__init__()
+        self.mlp1 = Mlp(channels, channels//4, channels, drop=0.1)
+        self.mlp2 = Mlp(channels, channels//4, channels, drop=0.1)
+        self.norm1 = nn.LayerNorm(channels)
+        self.norm2 = nn.LayerNorm(channels)
+
+
+    def forward(self, x):
+        B, C, H, W = x.shape
+        residual = x
+        x = x.flatten(2).transpose(1, 2)
+        out = self.mlp1(self.norm1(x),H, W)
+        out = self.mlp2(self.norm2(out),H, W) * 0.2
+        out = torch.add(out.permute(0,2,1).reshape(B, -1, H, W), residual)
+        return out
 
 class ResidualBlock(torch.nn.Module):
-    def __init__(self, channels):
+    def __init__(self, channels, hide_dims=None):
         super(ResidualBlock, self).__init__()
-        self.conv1 = ConvLayer(channels, channels, kernel_size=3, stride=1, padding=1)
-        self.conv2 = ConvLayer(channels, channels, kernel_size=3, stride=1, padding=1)
+        if not hide_dims:
+            hide_dims = channels
+        self.conv1 = ConvLayer(channels, hide_dims, kernel_size=3, stride=1, padding=1)
+        self.conv2 = ConvLayer(hide_dims, channels, kernel_size=3, stride=1, padding=1)
         self.relu = nn.ReLU()
 
     def forward(self, x):

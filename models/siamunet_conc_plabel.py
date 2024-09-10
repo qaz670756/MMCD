@@ -9,15 +9,70 @@
 # Daudt, R. C., Le Saux, B., & Boulch, A. "Fully convolutional siamese networks for change detection". In 2018 25th IEEE International Conference on Image Processing (ICIP) (pp. 4063-4067). IEEE.
 
 # Dropout layers are disabled by default
-
+import math
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from timm.models.layers import  trunc_normal_
+from ._utils._blocks import Conv3x3, MaxPool2x2, ConvTransposed3x3
+from ._utils._utils import Identity
 
-from ._blocks import Conv3x3, MaxPool2x2, ConvTransposed3x3
-from ._utils import Identity
 
+class DWConv(nn.Module):
+    def __init__(self, dim=768):
+        super(DWConv, self).__init__()
+        self.dwconv = nn.Conv2d(dim, dim, 3, 1, 1, bias=True, groups=16)
 
+    def forward(self, x, H, W):
+        B, N, C = x.shape
+        x = x.transpose(1, 2).view(B, C, H, W)
+        x = self.dwconv(x)
+        x = x.flatten(2).transpose(1, 2)
+
+        return x
+class SoftThresh(nn.Module):
+    def __init__(self, in_features=48, hidden_features=64, out_features=1, act_layer=nn.GELU, drop=0.1):
+        super().__init__()
+        out_features = out_features or in_features
+        hidden_features = hidden_features or in_features
+        self.sigmoid = nn.Sigmoid()
+        self.fc1 = nn.Linear(in_features, hidden_features)
+        self.dwconv = DWConv(hidden_features)
+        self.act = act_layer()
+        self.fc2 = nn.Linear(hidden_features, out_features)
+        self.drop = nn.Dropout(drop)
+
+        self.apply(self._init_weights)
+
+    def _init_weights(self, m):
+        if isinstance(m, nn.Linear):
+            trunc_normal_(m.weight, std=.02)
+            if isinstance(m, nn.Linear) and m.bias is not None:
+                nn.init.constant_(m.bias, 0)
+        elif isinstance(m, nn.LayerNorm):
+            nn.init.constant_(m.bias, 0)
+            nn.init.constant_(m.weight, 1.0)
+        elif isinstance(m, nn.Conv2d):
+            fan_out = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
+            fan_out //= m.groups
+            m.weight.data.normal_(0, math.sqrt(2.0 / fan_out))
+            if m.bias is not None:
+                m.bias.data.zero_()
+
+    def forward(self, x, y):
+        B,C,H,W = x.shape
+        x = self.sigmoid(x)
+        x = x*y
+        x = x.flatten(2).transpose(1, 2)
+        x = self.fc1(x)
+        x = self.dwconv(x, H, W)
+        x = self.act(x)
+        x = self.drop(x)
+        x = self.fc2(x)
+        x = self.drop(x)
+        x = x.permute(0,2,1).reshape(B, -1, H, W)
+        return x
+    
 class siamunet_conc_plabel(nn.Module):
     def __init__(self, in_ch=3, out_ch=3, use_dropout=False):
         super().__init__()
@@ -83,6 +138,7 @@ class siamunet_conc_plabel(nn.Module):
         self.do12d = self.make_dropout()
         self.conv11d = Conv3x3(16, out_ch)
         
+        self.soft_thresh = SoftThresh(out_features=48)
         self.plabel_conv = nn.Sequential(Conv3x3(48, 16, norm=True, act=True),
                                          self.make_dropout(),
                                          Conv3x3(16, out_ch))
@@ -170,17 +226,20 @@ class siamunet_conc_plabel(nn.Module):
         
         
         x12d = self.do12d(self.conv12d(x1d))
-        x11d = self.conv11d(x12d)
+        x2d = self.conv11d(x12d)
         
-        x2d_plabel = self.plabel_conv(x1d)
+        
         
         
         x12d_3d = self.do12d_3d(self.conv12d_3d(x1d))
         x11d_3d = self.conv11d_3d(x12d_3d)
         
-        x11d_3d = self.activate3d(x11d_3d)
+        x3d = self.activate3d(x11d_3d)
+        #import pdb;pdb.set_trace()
+        thresh_3d = self.soft_thresh(x3d,x1d)
+        x2d_plabel = self.plabel_conv(x1d+thresh_3d)
 
-        return x11d_3d, x11d, x2d_plabel
+        return x3d, x2d, x2d_plabel
 
     def make_dropout(self):
         if self.use_dropout:

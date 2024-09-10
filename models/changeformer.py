@@ -1589,7 +1589,8 @@ class DecoderTransformer_v3(nn.Module):
         _c1   = self.diff_c1(torch.cat((_c1_1, _c1_2), dim=1)) + F.interpolate(_c2, scale_factor=2, mode="bilinear")
         p_c1  = self.make_pred_c1(_c1)
         outputs.append(p_c1)
-
+        _,C,H,W = _c1_1.shape
+        vis_feature = torch.cat([_c1_1.view(C,H*W), _c1_2.view(C,H*W)], dim=1).clone().detach()
         #Linear Fusion of difference image from all scales
         _c = self.linear_fuse(torch.cat((_c4_up, _c3_up, _c2_up, _c1), dim=1))
 
@@ -1600,6 +1601,7 @@ class DecoderTransformer_v3(nn.Module):
         #     self.dropout = None
         #import pdb;pdb.set_trace()
         #Upsampling x2 (x1/2 scale)
+
         x = self.convd2x(_c)
         #Residual block
         x = self.dense_2x(x)
@@ -1607,6 +1609,7 @@ class DecoderTransformer_v3(nn.Module):
         x = self.convd1x(x)
         #Residual block
         x = self.dense_1x(x)
+        #vis_feature = x.clone().detach()
 
         #Final prediction
         cp = self.change_probability(x)
@@ -1622,7 +1625,7 @@ class DecoderTransformer_v3(nn.Module):
             for pred in temp:
                 outputs.append(self.active(pred))
 
-        return cp, cp_3d
+        return cp, cp_3d#, vis_feature
 
 
 

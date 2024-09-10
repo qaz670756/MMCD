@@ -8,7 +8,6 @@ model:
   2d_loss_weights: [0.05, 0.95, 0.95]
   class_ignored: 9999 
   pretrain_path: 'results/CD_changeformer_levir/lightning_logs/version_0/checkpoints/epoch=299-step=66900.ckpt'
-  #resume_path: 'results/CD_changeformer/lightning_logs/version_0/checkpoints/epoch=102-step=25757.ckpt'
 
 # Optimization parameters.
 optim:

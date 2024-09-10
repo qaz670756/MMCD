@@ -60,10 +60,10 @@ class ChannelAttention(nn.Module):
 
 
 
-class SNUNet(nn.Module):
+class snunet(nn.Module):
     # SNUNet-CD with ECAM
-    def __init__(self, in_ch=3, out_ch=2, emb_dims=16):
-        super(SNUNet, self).__init__()
+    def __init__(self, in_ch=3, out_ch=3, emb_dims=16):
+        super(snunet, self).__init__()
         torch.nn.Module.dump_patches = True
         n1 = emb_dims     # the initial number of channels of feature map
         filters = [n1, n1 * 2, n1 * 4, n1 * 8, n1 * 16]
